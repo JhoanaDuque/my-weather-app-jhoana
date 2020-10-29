@@ -57,17 +57,16 @@ function handleSubmit(event) {
   search(city);
 }
 
-function celsiusScale(event) {
-  event.preventDefault();
-  let p = document.querySelector("#current-temperature");
-  p.innerHTML = 25;
-}
-
 function fahrenheitScale(event) {
   event.preventDefault();
-  let p = document.querySelector("#current-temperature");
-  p.innerHTML = 50;
+  document.querySelector("#current-temperature").innerHTML = Math.round((celsiusTemperature *9)/5 +32);
 }
+
+function celsiusScale(event) {
+  event.preventDefault();
+  document.querySelector("#current-temperature").innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
 
 let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", handleSubmit);
