@@ -60,13 +60,17 @@ function handleSubmit(event) {
 function fahrenheitScale(event) {
   event.preventDefault();
   document.querySelector("#current-temperature").innerHTML = Math.round((celsiusTemperature *9)/5 + 32);
+  document.querySelector("#degrees").innerHTML = "°F"
 }
 
 function celsiusScale(event) {
   event.preventDefault();
   document.querySelector("#current-temperature").innerHTML = Math.round(celsiusTemperature);
+  document.querySelector("#degrees").innerHTML = "°C"
 }
 let celsiusTemperature = null;
+
+
 
 let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", handleSubmit);
