@@ -59,7 +59,7 @@ function handleSubmit(event) {
 
 function fahrenheitScale(event) {
   event.preventDefault();
-  document.querySelector("#current-temperature").innerHTML = Math.round((celsiusTemperature *9)/5 +32);
+  document.querySelector("#current-temperature").innerHTML = Math.round((celsiusTemperature *9)/5 + 32);
 }
 
 function celsiusScale(event) {
