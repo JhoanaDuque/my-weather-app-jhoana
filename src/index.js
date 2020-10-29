@@ -1,34 +1,37 @@
-let now = new Date();
-let h3 = document.querySelector("#current-date");
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-let year = now.getFullYear();
+  function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
+}
 
-let day = days[now.getDay()];
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec"
-];
-let month = months[now.getMonth()];
-h3.innerHTML = `${day} ${month} ${date}, ${year} ${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
+}
 
 function showTemperature(response) {
   console.log(response.data.name);
   document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -75,4 +78,4 @@ celsiusTemperatureButton.addEventListener("click", celsiusScale);
 let fahrenheitTemperatureButton = document.querySelector("#fahrenheit-button");
 fahrenheitTemperatureButton.addEventListener("click", fahrenheitScale);
 
-search("New York");
+search("Winnipeg");
