@@ -32,17 +32,11 @@ function showTemperature(response) {
   console.log(response.data.name);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
-  document.querySelector("#current-temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
-  document.querySelector("#feels-like-this").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
+  document.querySelector("#current-temperature").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#feels-like-this").innerHTML = Math.round(response.data.main.feels_like);
+
 }
 
 function search(city) {
@@ -60,17 +54,17 @@ function handleSubmit(event) {
 function fahrenheitScale(event) {
   event.preventDefault();
   document.querySelector("#current-temperature").innerHTML = Math.round((celsiusTemperature *9)/5 + 32);
-  document.querySelector("#degrees").innerHTML = "°F"
+  document.querySelector("#degrees").innerHTML = "°F";
+  document.querySelector("#feels-like-this").innerHTML = Math.round((celsiusTemperature *9)/5 + 32);
 }
 
 function celsiusScale(event) {
   event.preventDefault();
   document.querySelector("#current-temperature").innerHTML = Math.round(celsiusTemperature);
-  document.querySelector("#degrees").innerHTML = "°C"
+  document.querySelector("#degrees").innerHTML = "°C";
+  document.querySelector("#feels-like-this").innerHTML = Math.round(celsiusTemperature);
 }
 let celsiusTemperature = null;
-
-
 
 let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", handleSubmit);
