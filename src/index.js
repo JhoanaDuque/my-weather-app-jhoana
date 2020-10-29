@@ -56,6 +56,7 @@ function fahrenheitScale(event) {
   document.querySelector("#current-temperature").innerHTML = Math.round((celsiusTemperature *9)/5 + 32);
   document.querySelector("#degrees").innerHTML = "°F";
   document.querySelector("#feels-like-this").innerHTML = Math.round((celsiusTemperature *9)/5 + 32);
+  document.querySelector("#feels-degrees").innerHTML = "°F";
 }
 
 function celsiusScale(event) {
@@ -63,6 +64,7 @@ function celsiusScale(event) {
   document.querySelector("#current-temperature").innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#degrees").innerHTML = "°C";
   document.querySelector("#feels-like-this").innerHTML = Math.round(celsiusTemperature);
+  document.querySelector("#feels-degrees").innerHTML = "°C";
 }
 let celsiusTemperature = null;
 
