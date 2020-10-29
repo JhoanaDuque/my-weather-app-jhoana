@@ -36,23 +36,12 @@ function showTemperature(response) {
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
   document.querySelector("#feels-like-this").innerHTML = Math.round(response.data.main.feels_like);
-  document.querySelector("#uvindex").innerHTML = response.value;
-  if (response.value) = 1 || 2;
-  return `${response.value} Low`; 
 }
 
 function search(city) {
   let apiKey = "516c651b8f335e60369b9009c2ec48f5";
   let apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl1).then(showTemperature);}
-
-function uvindex(response) {
-  let apiKey = "516c651b8f335e60369b9009c2ec48f5";
-  let apiUrl2 = `https://api.openweathermap.org/data/2.5/uvi?lat=${lati}&lon=${long}&appid=${apiKey}`;
-  let lati = response.data.coord.lat;
-  let long = response.data.coord.lon;
-  axios.get(apiUrl2).then(showTemperature);
-}
 
 function handleSubmit(event) {
   event.preventDefault();
