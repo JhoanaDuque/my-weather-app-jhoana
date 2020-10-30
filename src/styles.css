@@ -126,6 +126,24 @@ footer {
   color: black;
 }
 
+.forecast-background {
+  background: url(../images/forecast_background.jpg);
+  background-repeat: no-repeat;
+  line-height: 4.6;
+}
+
+.top-space-forecast-white {
+  margin-top: 5px;
+}
+
+#white {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  padding: 10px;
+  margin: 0px;
+  border: 50px 0px 0px 0px;
+}
+
 .forecast {
   border: 1px solid #dadde1;
   padding: 15px;
@@ -139,7 +157,7 @@ footer {
 }
 
 .weather-forecast h3 {
-  color: rgb(186, 186, 186);
+  color: #48484a;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
