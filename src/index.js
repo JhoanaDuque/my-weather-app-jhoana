@@ -1,6 +1,6 @@
   function formatDate(timestamp) {
   let date = new Date(timestamp);
-
+   
   let days = [
     "Sunday",
     "Monday",
@@ -60,7 +60,7 @@ function showUV(response) {
     document.querySelector("#uvindex").innerHTML = `${response.value} Extreme`;}
   }
 
-function dispalyForecast(response) {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
@@ -88,7 +88,10 @@ function dispalyForecast(response) {
 function search(city) {
     let apiKey = "516c651b8f335e60369b9009c2ec48f5";
     let apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl1).then(showTemperature);}
+    axios.get(apiUrl1).then(showTemperature);
+  apiUrl3 = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl3).then(displayForecast);
+  }
 
 
 function getUVIndex(response){ 
