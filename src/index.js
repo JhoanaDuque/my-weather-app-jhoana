@@ -39,6 +39,7 @@ function showTemperature(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   celsiusTemperature = response.data.main.temp;
    getUVIndex(response);
+   let iconElement = document.querySelector("#icon");
     iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
