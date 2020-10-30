@@ -49,16 +49,16 @@ function showTemperature(response) {
 
 function showUV(response) {
   if (response.value >= 1 || response.value < 2) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} Low`;
-    if (response.value >= 3 || response.value < 5) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} Moderate`;
-    if (response.value >= 6 || response.value < 7) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} High`;
-    if (response.value >= 8 || response.value < 10) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} Very high`;
-    if (response.value >= 11) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} Extreme`;
-  }}}}}}
+    document.querySelector("#uvindex").innerHTML = `${response.value} Low`;}
+    else if (response.value >= 3 || response.value < 5) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} Moderate`;}
+    else if (response.value >= 6 || response.value < 7) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} High`;}
+    else if (response.value >= 8 || response.value < 10) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} Very high`;}
+    else if (response.value >= 11) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} Extreme`;}
+  }
 
 function dispalyForecast(response) {
   let forecastElement = document.querySelector("#forecast");
