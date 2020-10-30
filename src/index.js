@@ -38,22 +38,34 @@ function showTemperature(response) {
   document.querySelector("#feels-like-this").innerHTML = Math.round(response.data.main.feels_like);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   celsiusTemperature = response.data.main.temp;
-   document.querySelector("#uvindex").innerHTML = response.value;
-  if (response.value) = 1 || 2;
-  return `${response.value} Low`;
+   getUVIndex(response);
 }
 
-function search(city) {
-  let apiKey = "516c651b8f335e60369b9009c2ec48f5";
-  let apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl1).then(showTemperature);}
+function showUV(response) {
+  if (response.value >= 1 || response.value < 2) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} Low`;
+    if (response.value >= 3 || response.value < 5) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} Moderate`;
+    if (response.value >= 6 || response.value < 7) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} High`;
+    if (response.value >= 8 || response.value < 10) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} Very high`;
+    if (response.value >= 11) {
+    document.querySelector("#uvindex").innerHTML = `${response.value} Extreme`;
+  }}}}}}
 
-function uvindex(response) {
-  let apiKey = "516c651b8f335e60369b9009c2ec48f5";
-  let apiUrl2 = `https://api.openweathermap.org/data/2.5/uvi?lat=${lati}&lon=${long}&appid=${apiKey}`;
+function search(city) {
+    let apiKey = "516c651b8f335e60369b9009c2ec48f5";
+    let apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl1).then(showTemperature);}
+
+
+function getUVIndex(response){ 
   let lati = response.data.coord.lat;
   let long = response.data.coord.lon;
-  axios.get(apiUrl2).then(showTemperature);
+  let apiKey = "516c651b8f335e60369b9009c2ec48f5";
+  let apiUrl2 = `https://api.openweathermap.org/data/2.5/uvi?lat=${lati}&lon=${long}&appid=${apiKey}`;
+  axios.get(apiUrl2).then(showUV);
 }
 
 function handleSubmit(event) {
