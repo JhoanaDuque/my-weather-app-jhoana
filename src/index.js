@@ -73,10 +73,7 @@ function dispalyForecast(response) {
         ${formatHours(forecast.dt * 1000)}
       </h3>
       <img
-        src="http://openweathermap.org/img/wn/${
-          forecast.weather[0].icon
-        }@2x.png"
-      />
+        src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
       <div class="weather-forecast-temperature">
         <strong>
           ${Math.round(forecast.main.temp_max)}°
