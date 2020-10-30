@@ -16,6 +16,7 @@
  <body>
    <div class="container">
      <div class="weather-app-wrapper">
+       <div class="weather-app">
        <!-- ROW 1: SEARCH AREA & UNITS -->
         <form id="search-city-form">
          <div class="form-group">
@@ -61,18 +62,24 @@
         <div class="col-8">
           <div class="current-weather">
             <p class="current-temp" id="current-temperature"></p>
-            <span class="units" id="degrees"><small>°C</small></span>
-            <div class=col-12></div>
-            <div class="feels-like">Feels like <span id="feels-like-this"></span><span id="feels-degrees">°C</span>
-            </span></div>
+             <span class="units" id="degrees"><small>°C</small>
+             </span>
+              <div class=col-8>
+              </div>
+                <div class="feels-like">Feels like
+                 <span id="feels-like-this">
+                 </span>
+                   <span id="feels-degrees">°C
+                   </span>
+                </div>
           </div>
         </div>
         <br />
         <div class="col-4">
-          <div class=sun-icon>
-            <img src="" alt="" width="50%" id="icon">
-          </div> <br /><span class="card-text" id=description>
-          </span>
+          <div class="main-icon">
+            <img src="" alt="" width="55%" id="icon">
+          </div>
+          <span id="description"></span>
         </div>
       </div>
       <!-- ROW 3: CURRENT TEMPERATURE, FEELS LIKE & ICON -->
@@ -118,9 +125,11 @@
 
           <!-- WEATHER FORECAST -->
             <div class="row weather-forecast" id="forecast"></div>
-          </div>
+          
           <!-- END OF WEATHER FORECAST -->
+       </div>
      </div>
+    </div>
    </div>
       <!--END OF CONTAINER-->
       <footer>
