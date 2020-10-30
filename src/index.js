@@ -47,7 +47,6 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-
 function showUV(response) {
   if (response.value >= 1 || response.value < 2) {
     document.querySelector("#uvindex").innerHTML = `${response.value} Low`;
@@ -60,6 +59,34 @@ function showUV(response) {
     if (response.value >= 11) {
     document.querySelector("#uvindex").innerHTML = `${response.value} Extreme`;
   }}}}}}
+
+function dispalyForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <h3>
+        ${formatHours(forecast.dt * 1000)}
+      </h3>
+      <img
+        src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
+      />
+      <div class="weather-forecast-temperature">
+        <strong>
+          ${Math.round(forecast.main.temp_max)}°
+        </strong>
+        ${Math.round(forecast.main.temp_min)}°
+      </div>
+    </div>
+  `;
+  }
+}
 
 function search(city) {
     let apiKey = "516c651b8f335e60369b9009c2ec48f5";
