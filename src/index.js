@@ -48,17 +48,26 @@ function showTemperature(response) {
 }
 
 function showUV(response) {
-  if (response.value >= 1 || response.value < 2) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} Low`;}
-    else if (response.value >= 3 || response.value < 5) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} Moderate`;}
-    else if (response.value >= 6 || response.value < 7) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} High`;}
-    else if (response.value >= 8 || response.value < 10) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} Very high`;}
-    else if (response.value >= 11) {
-    document.querySelector("#uvindex").innerHTML = `${response.value} Extreme`;}
+  if (response.data.value >= 1 && response.data.value < 2) {
+    document.querySelector("#uvindex").innerHTML = `${Math.round(response.data.value)} Low`;
+  } else if (response.data.value >= 3 && response.data.value < 5) {
+    document.querySelector(
+      "#uvindex"
+    ).innerHTML = `${Math.round(response.data.value)} Moderate`;
+  } else if (response.data.value >= 6 && response.data.value < 7) {
+    document.querySelector(
+      "#uvindex"
+    ).innerHTML = `${Math.round(response.data.value)} High`;
+  } else if (response.data.value >= 8 && response.data.value < 10) {
+    document.querySelector(
+      "#uvindex"
+    ).innerHTML = `${Math.round(response.data.value)} Very high`;
+  } else {
+    document.querySelector(
+      "#uvindex"
+    ).innerHTML = `${Math.round(response.data.value)} Extreme`;
   }
+}
 
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
