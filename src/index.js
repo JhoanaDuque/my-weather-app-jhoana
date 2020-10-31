@@ -52,7 +52,7 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function showUV(response) {
-  if (response.data.value >= 1 && response.data.value < 2.99) {
+  if (response.data.value >= 0.1 && response.data.value < 2.99) {
     document.querySelector("#uvindex").innerHTML = `${Math.round(
       response.data.value
     )} Low`;
@@ -144,7 +144,7 @@ function fahrenheitScale(event) {
     // convert to Fahrenheit
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
-  // Remove the event to avoid converting twice
+
   celsiusTemperatureButton.addEventListener("click", celsiusScale);
   fahrenheitTemperatureButton.removeEventListener("click", fahrenheitScale);
 }
@@ -172,7 +172,7 @@ function celsiusScale(event) {
     // convert to Celsius
     item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
-  // Remove the event to avoid converting twice
+
   celsiusTemperatureButton.removeEventListener("click", celsiusScale);
   fahrenheitTemperatureButton.addEventListener("click", fahrenheitScale);
 }

@@ -1,5 +1,5 @@
 body {
-  font-family: "Varela Round", sans-serif;
+  font-family: "Kodchasan", sans-serif;
   margin: 10px 30px 50px 30px;
   padding: 20px auto;
 }
@@ -47,7 +47,7 @@ footer {
   padding: 40px 20px 20px 20px;
   border: 3px solid;
   border-radius: 20px;
-  border-color: #48484a;
+  border-color: #babab9;
 }
 
 #description {
