@@ -119,19 +119,46 @@ function handleSubmit(event) {
 
 function fahrenheitScale(event) {
   event.preventDefault();
-  document.querySelector("#current-temperature").innerHTML = Math.round((celsiusTemperature *9)/5 + 32);
+  document.querySelector("#current-temperature").innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
   document.querySelector("#degrees").innerHTML = "°F";
-  document.querySelector("#feels-like-this").innerHTML = Math.round((celsiusTemperature *9)/5 + 32);
+  document.querySelector("#feels-like-this").innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
   document.querySelector("#feels-degrees").innerHTML = "°F";
+​
+  let forecastMax = document.querySelectorAll(".forecast-max");
+​  forecastMax.forEach(function(item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);});
+  let forecastMin = document.querySelectorAll(".forecast-min");
+  forecastMin.forEach(function(item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+  celsiusTemperatureButton.addEventListener("click", celsiusScale);
+  fahrenheitTemperatureButton.removeEventListener("click", fahrenheitScale);
 }
-
+​
 function celsiusScale(event) {
   event.preventDefault();
   document.querySelector("#current-temperature").innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#degrees").innerHTML = "°C";
   document.querySelector("#feels-like-this").innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#feels-degrees").innerHTML = "°C";
+​
+  let forecastMax = document.querySelectorAll(".forecast-max");
+  forecastMax.forEach(function(item) {let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+​
+  let forecastMin = document.querySelectorAll(".forecast-min");
+​  forecastMin.forEach(function(item) {
+    let currentTemp = item.innerHTML;
+​   item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+​
+  celsiusTemperatureButton.removeEventListener("click", celsiusScale);
+  fahrenheitTemperatureButton.addEventListener("click", fahrenheitScale);
 }
+
 let celsiusTemperature = null;
 
 let searchCityForm = document.querySelector("#search-city-form");
