@@ -52,19 +52,19 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function showUV(response) {
-  if (response.data.value >= 1 && response.data.value < 2) {
+  if (response.data.value >= 1 && response.data.value < 2.99) {
     document.querySelector("#uvindex").innerHTML = `${Math.round(
       response.data.value
     )} Low`;
-  } else if (response.data.value >= 3 && response.data.value < 5) {
+  } else if (response.data.value >= 3 && response.data.value < 5.99) {
     document.querySelector("#uvindex").innerHTML = `${Math.round(
       response.data.value
     )} Moderate`;
-  } else if (response.data.value >= 6 && response.data.value < 7) {
+  } else if (response.data.value >= 6 && response.data.value < 7.99) {
     document.querySelector("#uvindex").innerHTML = `${Math.round(
       response.data.value
     )} High`;
-  } else if (response.data.value >= 8 && response.data.value < 10) {
+  } else if (response.data.value >= 8 && response.data.value < 10.99) {
     document.querySelector("#uvindex").innerHTML = `${Math.round(
       response.data.value
     )} Very high`;
