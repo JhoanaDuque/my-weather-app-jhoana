@@ -52,8 +52,9 @@ footer {
 
 #description {
   text-align: center;
-  margin-top: -500px;
+  margin-top: -20px;
   font-size: 12px;
+  margin-bottom: 0;
 }
 
 .row {
@@ -143,7 +144,9 @@ footer {
   background-repeat: no-repeat;
   line-height: 1;
   border-radius: 15px;
-  box-shadow: 3px;
+  box-shadow: 10px 10px 5px 0px rgba(0 0 0 0.75);
+  height: 185px;
+  background-size: cover;
 }
 
 .top-space-forecast-white {
@@ -154,12 +157,11 @@ footer {
 #white {
   background-color: rgba(255, 255, 255, 0.7);
   position: relative;
-  border-radius: 16px;
-  padding: 10px;
-  margin: 0px;
-  border: 50px 0px 0px 0px;
-  width: 554px;
-  height: 185px;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .forecast {
@@ -171,7 +173,7 @@ footer {
 }
 
 .weather-forecast {
-  margin-top: 10px;
+  width: 100%;
 }
 
 .weather-forecast h3 {
