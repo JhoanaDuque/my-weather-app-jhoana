@@ -8,7 +8,7 @@ h2,
 h3 {
   line-height: 28.8px;
   font-weight: 100;
-  color: rgb(129, 129, 138);
+  color: #48484a;
   margin: 0px 0px 0px 5px;
 }
 h2 {
@@ -29,7 +29,7 @@ footer {
 }
 
 .container {
-  border-radius: 10px;
+  border-radius: 20px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -44,13 +44,24 @@ footer {
 }
 
 .weather-app {
-  padding: 20px;
-  border: 1px solid #dadde1;
-  border-radius: 5px;
+  padding: 40px 20px 20px 20px;
+  border: 3px solid;
+  border-radius: 20px;
+  border-color: #48484a;
 }
 
-#test {
+#description {
   text-align: center;
+  margin-top: -500px;
+  font-size: 12px;
+}
+
+.row {
+  text-align: center;
+}
+
+.col-5 {
+  padding: 0;
 }
 
 .card-body {
@@ -58,16 +69,17 @@ footer {
 }
 .card-title {
   text-align: center;
-  font-size: 20px;
+  font-size: 17px;
 }
 .card-text {
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   margin: 10px 0px;
+  line-height: 0.5;
 }
 .feels-like {
   font-size: 14px;
-  margin: -15px 0px 40px 95px;
+  margin: -15px 0px 40px 80px;
 }
 
 .fa-wind {
@@ -77,13 +89,13 @@ footer {
 }
 
 .fa-water {
-  color: #7e7e7f;
+  color: #b7b7b8;
   font-size: 25px;
   text-align: center;
 }
 
 .fa-circle {
-  color: #ec6e4c;
+  color: #ffa17f;
   font-size: 25px;
   text-align: center;
 }
@@ -129,19 +141,25 @@ footer {
 .forecast-background {
   background: url(../images/forecast_background.jpg);
   background-repeat: no-repeat;
-  line-height: 4.6;
+  line-height: 1;
+  border-radius: 15px;
+  box-shadow: 3px;
 }
 
 .top-space-forecast-white {
-  margin-top: 5px;
+  margin-top: 15px;
+  line-height: 4.6;
 }
 
 #white {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
+  position: relative;
   border-radius: 16px;
   padding: 10px;
   margin: 0px;
   border: 50px 0px 0px 0px;
+  width: 554px;
+  height: 185px;
 }
 
 .forecast {
