@@ -41,7 +41,9 @@ function showTemperature(response) {
     response.data.main.feels_like
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  
   celsiusTemperature = response.data.main.temp;
+  celsiusTemperatureFeel = response.data.main.feels_like;
   getUVIndex(response);
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -127,7 +129,7 @@ function fahrenheitScale(event) {
   );
   document.querySelector("#degrees").innerHTML = "°F";
   document.querySelector("#feels-like-this").innerHTML = Math.round(
-    (celsiusTemperature * 9) / 5 + 32
+    (celsiusTemperatureFeel * 9) / 5 + 32
   );
   document.querySelector("#feels-degrees").innerHTML = "°F";
   let forecastMax = document.querySelectorAll(".forecast-max");
@@ -155,7 +157,7 @@ function celsiusScale(event) {
   );
   document.querySelector("#degrees").innerHTML = "°C";
   document.querySelector("#feels-like-this").innerHTML = Math.round(
-    celsiusTemperature
+    celsiusTemperatureFeel
   );
   document.querySelector("#feels-degrees").innerHTML = "°C";
   let forecastMax = document.querySelectorAll(".forecast-max");
@@ -177,6 +179,7 @@ function celsiusScale(event) {
   fahrenheitTemperatureButton.addEventListener("click", fahrenheitScale);
 }
 let celsiusTemperature = null;
+let celsiusTemperatureFeel = null;
 let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", handleSubmit);
 let celsiusTemperatureButton = document.querySelector("#celsius-button");
