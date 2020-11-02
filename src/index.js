@@ -10,7 +10,7 @@ function formatDate(timestamp) {
     "Saturday"
   ];
   let day = days[date.getDay()];
-  return `${day} ${formatHours(timestamp)}`;
+  return `Last updated: ${day} ${formatHours(timestamp)}`;
 }
 function formatHours(timestamp) {
   let date = new Date(timestamp);
@@ -25,7 +25,6 @@ function formatHours(timestamp) {
   return `${hours}:${minutes}`;
 }
 function showTemperature(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#date").innerHTML = formatDate(
     response.data.dt * 1000
@@ -51,6 +50,7 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
 function showUV(response) {
   if (response.data.value >= 0.1 && response.data.value < 2.99) {
     document.querySelector("#uvindex").innerHTML = `${Math.round(
